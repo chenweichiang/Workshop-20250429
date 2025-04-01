@@ -1,100 +1,129 @@
-# VS Code 與 GitHub Copilot 開發指南
+# Cursor 與 GitHub Copilot AI 輔助 Arduino 開發指南
 
-## 安裝與設置 VS Code
+## 什麼是 AI 輔助開發工具
+AI 輔助開發工具是一種運用人工智慧技術幫助程式設計師提高效率的新一代工具。在本工作坊中，我們將使用兩種主要工具：
+- **Cursor**：基於 VS Code 並整合 AI 功能的程式編輯器
+- **GitHub Copilot**：由 OpenAI 技術驅動的程式碼生成助手
+
+## Cursor 安裝與設置
 ### 安裝步驟
-1. 前往 [VS Code 官網](https://code.visualstudio.com/) 下載適合您作業系統的版本
-   - Windows 用戶選擇 .exe 或 .zip 檔案
+1. 前往 [Cursor 官網](https://cursor.sh/) 下載適合您作業系統的版本
+   - Windows 用戶選擇 .exe 檔案
    - macOS 用戶選擇 .dmg 檔案
-2. 安裝 VS Code Insiders 版本（支援最新的 Copilot 功能）
-   - 前往 [VS Code Insiders](https://code.visualstudio.com/insiders/) 下載
+2. 完成安裝後，啟動 Cursor
 
-### 安裝 Arduino 擴充功能
-1. 在 VS Code 中，點擊左側擴充功能圖示
+### 設置 Arduino 開發環境
+1. 在 Cursor 中，點擊左側擴充功能圖示
 2. 搜尋 "Arduino"
 3. 安裝 "Arduino" 官方擴充功能
-4. 重新載入 VS Code
-
-## GitHub 帳號設置
-1. 前往 [GitHub](https://github.com/) 註冊帳號
-2. 確認您的電子郵件地址
-3. 設置安全的密碼及啟用雙因素認證（建議）
+4. 重新載入 Cursor
 
 ## GitHub Copilot 設置
-### 訂閱 GitHub Copilot
-1. 前往 [GitHub Copilot](https://github.com/features/copilot)
-2. 點擊 "Get Started with Copilot"
-3. 選擇適合您的訂閱方案（學生可能有免費方案）
+### 取得訂閱與登入
+1. 前往 [GitHub Copilot](https://github.com/features/copilot) 訂閱服務（學生可能有免費方案）
+2. 在 Cursor 中登入您的 GitHub 帳號（Cursor 預設整合了 Copilot 功能）
 
-### 在 VS Code 中設置 GitHub Copilot
-1. 安裝 GitHub Copilot 擴充功能
-   - 在擴充功能市集中搜尋 "GitHub Copilot"
-   - 安裝官方擴充功能
-2. 使用 GitHub 帳號登入
-   - 點擊左下角設定圖示，選擇 "Settings"
-   - 搜尋 "Copilot"
-   - 點擊 "Sign in to GitHub"
+## 使用 AI 工具開發 Arduino 專案的技巧
 
-## 使用 GitHub Copilot 開發 Arduino 專案
-### 基本使用方法
-1. 創建一個新的 Arduino 檔案 (.ino)
-2. 開始輸入註解或基本程式碼
-3. GitHub Copilot 會開始提供建議
-4. 按下 Tab 鍵接受建議
+### 1. 使用自然語言描述需求
+在 Cursor 中，您可以直接使用中文或英文描述您想實現的功能：
 
-### 提升 Copilot 效能的技巧
-1. 寫清晰的註解
-   ```cpp
-   // 使用超音波感測器 HC-SR04 來測量距離
-   // 當距離小於 10cm 時，亮起 LED
-   ```
-
-2. 定義明確的函數名稱與變數名稱
-   ```cpp
-   void readUltrasonicDistance() {
-     // Copilot 會根據函數名稱提供相關實現
-   }
-   ```
-
-3. 建立模板代碼框架
-   ```cpp
-   // 設置針腳定義
-   const int trigPin = 9;
-   const int echoPin = 10;
-   const int ledPin = 13;
-   
-   // 變數宣告
-   long duration;
-   int distance;
-   
-   void setup() {
-     // Copilot 將提供適當的設置程式碼
-   }
-   ```
-
-## 實用範例：使用 Copilot 開發 LED 控制程式
-### 步驟 1：編寫清晰的需求註解
-```cpp
-// Arduino 程式：透過超音波感測器控制 LED 亮度
-// - 超音波感測器連接到針腳 9 (Trig) 和 10 (Echo)
-// - LED 連接到 PWM 針腳 3
-// - 當物體越接近，LED 越亮
-// - 使用 Serial 監視器顯示測量的距離
+```
+// 請寫一個程式，使用光敏電阻控制 LED 亮度
+// 光敏電阻連接到 A0，LED 連接到 9號腳位
+// 當環境光線變暗時，LED 應該變亮
 ```
 
-### 步驟 2：讓 Copilot 生成基本程式框架
-*[Copilot 會提供針腳定義和基本函數]*
+### 2. AI 對話功能（Cursor Chat）
+使用 Cursor 的 AI 對話功能解決問題：
+- 按下 `Ctrl+K` (Windows) 或 `Cmd+K` (Mac) 開啟 AI 對話
+- 描述您遇到的問題，例如：「我的 LED 閃爍程式無法正常工作，可能是什麼原因？」
+- AI 將分析您的程式碼並提供解決方案
 
-### 步驟 3：添加細節並請求特定功能
-```cpp
-// 添加一個函數來計算距離並轉換為 LED 亮度
+### 3. 程式碼解釋與優化
+如果看到不懂的 Arduino 程式碼，選中後右鍵點擊，選擇：
+- "解釋這段程式碼"
+- "優化這段程式碼"
+- "簡化這段程式碼"
+
+### 4. 生成完整專案範例
+您可以要求 AI 生成完整的 Arduino 專案：
+
+```
+/*
+請生成一個完整的 Arduino 專案，實現以下功能：
+1. 使用光敏電阻讀取環境光線
+2. 當光線低於閾值時，LED 開始閃爍
+3. 當光線高於閾值時，LED 持續亮起
+4. 使用序列監視器顯示當前的光線值
+*/
 ```
 
-## 使用 GitHub 儲存與分享您的專案
-1. 創建新的 GitHub 儲存庫
-2. 使用 VS Code 內建的 Git 功能將專案推送到 GitHub
-3. 與他人協作和分享您的程式碼
+## 5 個 AI 提示範例（適合 Arduino 初學者）
 
-## 實作練習
-1. 使用 VS Code 和 GitHub Copilot 創建一個簡單的 Arduino 程式
-2. 使用 Copilot 幫助優化已有的 Arduino 專案
-3. 將您的專案推送到 GitHub
+### 範例 1：基礎 LED 閃爍
+```
+// 請寫一個程式讓 LED 每秒閃爍一次，連接在 13 號腳位
+```
+
+### 範例 2：按鈕控制 LED
+```
+// 請寫一個程式，使用按鈕控制 LED
+// 按鈕連接到 2 號腳位，LED 連接到 13 號腳位
+// 按下按鈕時 LED 亮起，放開按鈕時 LED 熄滅
+```
+
+### 範例 3：光敏電阻控制 LED 亮度
+```
+// 寫一個程式，使用光敏電阻讀數來控制 LED 亮度
+// 光敏電阻連接到 A0，LED 連接到 9 號腳位（PWM）
+// 使用 map 函數將讀數轉換為 PWM 值
+```
+
+### 範例 4：簡易電子琴
+```
+// 設計一個簡單的電子琴
+// 使用 3 個按鈕（接在 2, 3, 4 號腳位）控制蜂鳴器（接在 8 號腳位）
+// 每個按鈕對應不同音調（Do, Re, Mi）
+```
+
+### 範例 5：互動燈光系統
+```
+// 創建一個互動燈光系統
+// 使用光敏電阻（A0）檢測環境光線
+// 使用按鈕（2 號腳位）切換 3 種模式：自動、常亮、閃爍
+// 使用 LED（9 號腳位）作為輸出
+// 在自動模式下，當環境光線變暗時 LED 自動亮起
+```
+
+## 使用 AI 解決常見 Arduino 問題
+
+### 問題 1：程式編譯錯誤
+如果您遇到編譯錯誤，選中錯誤訊息，請求 AI 協助：
+```
+// 我收到以下錯誤，請幫我解決：
+// 'Serial' was not declared in this scope
+```
+
+### 問題 2：硬體連接
+您可以描述您的硬體連接問題，請求 AI 提供接線圖：
+```
+// 我想連接一個光敏電阻和一個 LED 到 Arduino，請提供接線說明
+```
+
+### 問題 3：程式邏輯
+AI 可以幫助優化程式邏輯：
+```
+// 我的程式邏輯有問題，LED 應該在光線暗時亮起，但現在相反
+// [貼上您的程式碼]
+```
+
+## 工作坊實作練習
+1. 安裝 Cursor 並配置 Arduino 環境
+2. 嘗試使用 AI 生成一個基礎的 LED 閃爍程式
+3. 使用 AI 解釋已有的 Arduino 示例程式
+4. 實作一個光敏電阻控制 LED 的專案，全程使用 AI 輔助
+
+---
+
+*最後更新：2025年4月1日*
