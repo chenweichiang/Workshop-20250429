@@ -10,12 +10,30 @@
 最後更新：2025/04/01
 
 ## 🚀 快速開始
-1. 檢查[材料清單](材料清單.md)，準備所需器材
-2. 依照[環境設定說明](環境設定說明.md)安裝必要軟體
+
+### ⚡ 課前準備（請在工作坊前完成）
+1. **註冊帳號**
+   - 註冊 [GitHub 帳號](https://github.com/signup)（免費）
+   - 使用學校 Email 申請 [GitHub 學生開發者套件](https://education.github.com/pack)
+   - 按照[學生帳號申請指南](GitHub_Copilot學生帳號申請指南.md)啟用免費 Copilot
+
+2. **安裝必要軟體**
+   - 安裝 [Arduino IDE](https://www.arduino.cc/en/software)（2.2.1 或更新版本）
+   - 安裝 [VS Code Insiders](https://code.visualstudio.com/insiders/)（開發環境，推薦）
+   - 安裝 [Cursor 編輯器](https://cursor.sh/)（AI 輔助開發工具）
+   - 詳細步驟請參考[環境設定說明](環境設定說明.md)
+
+3. **準備硬體設備**
+   - 查看[材料清單](材料清單.md)確認所需電子元件
+   - 攜帶筆記型電腦與充電器
+   - 準備一條 USB A-to-B 線（Arduino 連接線）
+
+### 💡 工作坊學習路徑
+1. 檢查[材料清單](材料清單.md)，確認所有設備
+2. 依照[環境設定說明](環境設定說明.md)確認軟體運作正常
 3. 了解[AI工具使用方法](Cursor與GitHub_Copilot指南.md)
-4. 申請[GitHub Copilot 學生免費帳號](GitHub_Copilot學生帳號申請指南.md)
-5. 閱讀[完整課程教材](AI輔助Arduino感測器工作坊教材.md)
-6. 按照下方學習路徑開始實作！
+4. 閱讀[完整課程教材](AI輔助Arduino感測器工作坊教材.md)
+5. 按照下方學習路徑開始實作！
 
 ## 📚 課程簡介
 這是一個結合AI與Arduino的一日互動感測器工作坊，透過AI輔助工具幫助學員快速入門Arduino感測器應用，即使沒有程式設計經驗也能輕鬆完成互動裝置的製作。
