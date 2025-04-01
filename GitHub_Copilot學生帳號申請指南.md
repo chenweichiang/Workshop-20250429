@@ -1,5 +1,7 @@
 # GitHub Copilot 學生帳號申請指南
 
+*版本：1.1.0*
+
 ![GitHub Education](https://education.github.com/assets/pack/logo-mark-education-69d7e347cfbda85c5f087a9b1bb6ecbc4d3c0539bcb955738d4248cc7798a0c3.svg)
 
 *最後更新：2025年4月1日*
