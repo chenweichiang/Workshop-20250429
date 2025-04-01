@@ -1,0 +1,27 @@
+# 不上傳到GitHub的檔案
+AI輔助Arduino感測器工作坊教材.md
+
+# macOS系統檔案
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# 暫存檔案
+*.tmp
+*.bak
+*.swp
+*~.nib
+
+# Arduino編譯暫存文件
+*.hex
+*.elf
+*.eep
+*.o
+*.d
+*.bin
+
+# VS Code/Cursor相關
+.vscode/
+.cursor/
