@@ -1,393 +1,591 @@
-# AI輔助Arduino感測器進階應用工作坊
-版本：1.2.0
+# AI輔助Arduino新型感測器進階應用工作坊
+版本：1.3.0
 最後更新：2025/04/03
 
-## AI輔助感測器進階應用 (10:00-12:00)
+## AI輔助新型感測器進階應用 (10:00-12:00)
 
-### AI輔助工具與Arduino感測器開發介紹 (10:00-10:15)
-- AI輔助開發工具在感測器應用中的優勢
+### AI輔助工具與Arduino新型感測器開發介紹 (10:00-10:15)
+- AI輔助開發工具在新型感測器應用中的優勢
   - Cursor與GitHub Copilot功能對比
-  - AI提示詞優化技巧與示範
-- 感測器開發常見難題與AI解決方案
-  - 使用AI分析感測器數據模式
-  - AI協助排除感測器故障與干擾
+  - 感測器專用AI提示詞優化技巧
+- 新型感測器開發常見難題與AI解決方案
+  - 使用AI處理多變量感測器數據
+  - AI協助排除感測器校準與干擾問題
 - 進階AI提示技巧
-  - 感測器開發的專業提示詞構建
-  - 引導AI生成高品質代碼的關鍵要素
+  - 環境與運動感測器的專業提示詞構建
+  - 引導AI生成高品質校準與濾波代碼
 
-### 感測器資料分析與視覺化 (10:15-10:35)
-- 感測器數據特性分析
-  - 識別噪音與有效數據
-  - 使用AI分析數據趨勢與模式
-- 數據視覺化技術
-  - 使用AI生成序列圖表顯示代碼
-  - 設計資料閾值與觸發條件
-- 實時數據處理技巧
-  - 使用移動平均和其他濾波方法
-  - AI輔助數據異常檢測算法設計
+### 環境感測技術與數據視覺化 (10:15-10:35)
+- 溫濕度感測器技術深入探討
+  - DHT11與DHT22原理與差異
+  - OneWire溫度感測器數據處理
+- 大氣環境參數監測
+  - BMP280氣壓感測器使用技巧
+  - 綜合環境數據校準與補償
+- 環境數據視覺化
+  - LCD顯示環境參數與趨勢圖
+  - 使用AI設計多參數視覺化界面
 
-### 多感測器融合技術 (10:35-11:00)
-- 感測器協同工作原理
-  - 多感測器同步讀取技術
-  - 不同感測器數據標準化方法
-- AI輔助多感測器整合
-  - 使用AI設計感測器協同邏輯
-  - 解決感測器衝突與優先級問題
-- 實用案例解析
-  - 光線與動作感測結合
-  - 溫度與濕度綜合監測系統
+### 運動與姿態感測技術 (10:35-11:00)
+- MPU6050加速度陀螺儀模組應用
+  - 6軸數據獲取與處理原理
+  - 加速度與角速度數據融合
+- 運動模式識別與分析
+  - 使用AI生成運動模式識別算法
+  - 動作閾值檢測與觸發
+- 特殊感測器協同應用
+  - 震動感測器(SW-420)與MPU6050數據融合
+  - 觸摸感測器(TTP223B)與姿態感測結合
 
 ### 感測器校準與濾波 (11:00-11:20)
-- 感測器校準原理與方法
-  - 線性和非線性校準技術
-  - 使用AI生成自動校準代碼
-- 數據濾波與平滑處理
-  - 使用AI設計數字濾波器
-  - 突波抑制與雜訊消除技巧
-- 高精度讀取技術
-  - 過採樣與數據平均
-  - AI輔助信號處理與增強
+- 環境感測器校準技術
+  - DHT22溫濕度與BMP280感測器校準方法
+  - 使用參考感測器進行交叉校準
+- 運動感測器數據處理
+  - MPU6050零點漂移補償
+  - 姿態解算與互補濾波
+- 進階數據濾波技術
+  - 卡爾曼濾波器應用於運動數據
+  - 低通/高通濾波器與數字濾波
 
 ### 互動裝置實作工作坊 (11:20-11:45)
-#### 專案：智能環境監測與反應系統
+#### 專案：智能環境與運動監測系統
 - 專案目標與構思
-  - 使用多種感測器監測環境
-  - 根據感測器數據觸發智能反應
+  - 創建兼具環境監測與運動檢測功能的系統
+  - 通過AI輔助設計數據處理邏輯
 
 - 所需材料
   - Arduino Uno/相容板
-  - 光敏電阻（環境光線檢測）
-  - 按鈕或傾斜感測器（互動觸發）
-  - LED（多種輸出反應）
-  - 電阻套件
+  - DHT22溫濕度感測器
+  - MPU6050加速度陀螺儀模組
+  - 土壤濕度感測器或氣體感測器(選用)
+  - LCD顯示模組或OLED顯示屏
+  - 電阻與配件套件
   - 麵包板與跳線
 
 - AI輔助開發流程
-  1. **專案架構設計**
-     - 使用AI繪製系統架構
-     - 定義感測器與執行器間的邏輯關係
+  1. **系統架構設計**
+     - 使用AI設計感測器連接與數據流
+     - 定義不同感測器功能優先級
   
-  2. **多感測器協同工作**
-     - 使用AI生成多感測器同步讀取代碼
-     - 設計感測器數據優先級處理邏輯
+  2. **環境感測模塊開發**
+     - 使用AI生成DHT22與BMP280數據讀取代碼
+     - 設計溫濕度與氣壓趨勢分析算法
   
-  3. **智能反應機制**
-     - 使用AI設計環境適應性算法
-     - 實現複雜的條件反應邏輯
-
-  4. **優化與調試**
-     - AI協助識別效能瓶頸
-     - 改進代碼結構與感測器響應時間
+  3. **運動檢測模塊開發**
+     - 使用AI開發MPU6050姿態解算代碼
+     - 實現運動模式識別與閾值檢測
+  
+  4. **系統整合與優化**
+     - AI協助設計多感測器數據融合算法
+     - 優化顯示界面與交互邏輯
 
 ### 成果展示與進階技巧分享 (11:45-12:00)
 - 學員作品展示與經驗分享
   - 實際應用中的挑戰與解決方案
-  - AI輔助開發的心得交流
-
-- 感測器開發常見問題與解決策略
-  - 感測器飽和與範圍擴展技巧
-  - 電源穩定與參考電壓優化
-
+  - AI輔助開發的經驗反饋
+- 新型感測器開發常見問題與解決策略
+  - I2C通訊問題排查技巧
+  - 多感測器干擾與隔離方法
 - 學習資源與未來探索方向
   - 推薦進階感測器學習資源
-  - 感測器與機器學習結合的可能性
+  - 物聯網與環境監測系統發展趨勢
 
-## 感測器進階技術參考代碼
+## 新型感測器進階技術參考代碼
 
-### 1. 多感測器數據融合示例
+### 1. DHT22溫濕度感測器示例
 ```cpp
-// AI生成的多感測器融合代碼
-const int lightSensorPin = A0;    // 光敏電阻
-const int tempSensorPin = A1;     // 溫度感測器
-const int buttonPin = 2;          // 按鈕輸入
-const int ledPin = 9;             // LED輸出
+// AI生成的DHT22溫濕度感測器代碼
+#include <DHT.h>
+#include <LiquidCrystal_I2C.h>
+
+#define DHTPIN 2       // DHT22連接到數位引腳2
+#define DHTTYPE DHT22  // 使用DHT22感測器
+
+// 初始化LCD (地址, 列數, 行數)
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+// 初始化DHT感測器
+DHT dht(DHTPIN, DHTTYPE);
+
+// 數據緩衝區用於計算移動平均
+float tempReadings[10] = {0};
+float humReadings[10] = {0};
+int readIndex = 0;
+
+// 溫度單位轉換函數
+float celsiusToFahrenheit(float celsius) {
+  return celsius * 1.8 + 32.0;
+}
+
+void setup() {
+  Serial.begin(9600);
+  
+  // 初始化LCD
+  lcd.init();
+  lcd.backlight();
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("DHT22 Monitor");
+  
+  // 初始化DHT感測器
+  dht.begin();
+  
+  Serial.println("DHT22溫濕度監測系統初始化完成");
+  Serial.println("格式: 溫度(C), 濕度(%), 露點(C)");
+  
+  delay(2000);
+}
+
+void loop() {
+  // 等待2秒以確保穩定讀數
+  delay(2000);
+  
+  // 讀取溫度與濕度
+  float humidity = dht.readHumidity();
+  float temperature = dht.readTemperature();
+  
+  // 檢查讀取是否成功
+  if (isnan(humidity) || isnan(temperature)) {
+    Serial.println("無法從DHT感測器讀取數據!");
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("Sensor Error!");
+    return;
+  }
+  
+  // 計算露點
+  float dewPoint = temperature - (100 - humidity) / 5;
+  
+  // 更新移動平均緩衝區
+  tempReadings[readIndex] = temperature;
+  humReadings[readIndex] = humidity;
+  readIndex = (readIndex + 1) % 10;
+  
+  // 計算移動平均
+  float avgTemp = 0;
+  float avgHum = 0;
+  for (int i = 0; i < 10; i++) {
+    avgTemp += tempReadings[i];
+    avgHum += humReadings[i];
+  }
+  avgTemp /= 10;
+  avgHum /= 10;
+  
+  // 在LCD顯示溫度和濕度
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Temp: ");
+  lcd.print(avgTemp, 1);
+  lcd.print((char)223); // 度數符號
+  lcd.print("C");
+  
+  lcd.setCursor(0, 1);
+  lcd.print("Humidity: ");
+  lcd.print(avgHum, 1);
+  lcd.print("%");
+  
+  // 輸出至序列監視器
+  Serial.print("溫度: ");
+  Serial.print(temperature);
+  Serial.print("°C | ");
+  Serial.print(celsiusToFahrenheit(temperature));
+  Serial.print("°F | 濕度: ");
+  Serial.print(humidity);
+  Serial.print("% | 露點: ");
+  Serial.print(dewPoint);
+  Serial.println("°C");
+  
+  // 檢查溫度警告條件
+  if (temperature > 30) {
+    Serial.println("警告: 溫度過高!");
+    // 在這裡可以加入警報或其他反應
+  }
+}
+```
+
+### 2. MPU6050姿態感測示例
+```cpp
+// AI生成的MPU6050姿態感測與運動檢測代碼
+#include <Wire.h>
+#include <MPU6050.h>
+
+MPU6050 mpu;
+
+// 運動閾值設定
+const float MOVEMENT_THRESHOLD = 0.3;  // g力加速度閾值
+const float ROTATION_THRESHOLD = 15.0;  // 度/秒閾值
+
+// 姿態變量
+float pitch = 0;
+float roll = 0;
+float yaw = 0;
+
+// 運動檢測變量
+bool isMoving = false;
+unsigned long lastMovementTime = 0;
+int movementDuration = 0;
+
+// 數據過濾參數
+const float ALPHA = 0.2; // 低通濾波器參數
+
+void setup() {
+  Serial.begin(115200);
+  Wire.begin();
+  
+  Serial.println("初始化MPU6050...");
+  
+  // 初始化MPU6050
+  while(!mpu.begin(MPU6050_SCALE_2000DPS, MPU6050_RANGE_2G)) {
+    Serial.println("無法找到MPU6050感測器!");
+    delay(500);
+  }
+  
+  // 校準陀螺儀
+  mpu.calibrateGyro();
+  
+  // 設置低功耗模式
+  mpu.setDHPFMode(MPU6050_DHPF_5HZ);
+  
+  Serial.println("MPU6050初始化完成!");
+  Serial.println("格式: Pitch, Roll, AccX, AccY, AccZ, GyroX, GyroY, GyroZ, 運動狀態");
+}
+
+void loop() {
+  // 讀取原始加速度計和陀螺儀數據
+  Vector rawAccel = mpu.readRawAccel();
+  Vector normAccel = mpu.readNormalizeAccel();
+  Vector rawGyro = mpu.readRawGyro();
+  Vector normGyro = mpu.readNormalizeGyro();
+  
+  // 計算加速度總體大小
+  float accelMagnitude = sqrt(
+    normAccel.XAxis * normAccel.XAxis + 
+    normAccel.YAxis * normAccel.YAxis + 
+    normAccel.ZAxis * normAccel.ZAxis
+  );
+  
+  // 檢測是否存在運動
+  bool movementDetected = false;
+  
+  // 檢查加速度是否超過閾值
+  if (abs(accelMagnitude - 1.0) > MOVEMENT_THRESHOLD) {
+    movementDetected = true;
+  }
+  
+  // 檢查旋轉是否超過閾值
+  if (abs(normGyro.XAxis) > ROTATION_THRESHOLD || 
+      abs(normGyro.YAxis) > ROTATION_THRESHOLD || 
+      abs(normGyro.ZAxis) > ROTATION_THRESHOLD) {
+    movementDetected = true;
+  }
+  
+  // 更新運動狀態
+  if (movementDetected) {
+    if (!isMoving) {
+      isMoving = true;
+      Serial.println("運動開始檢測到!");
+    }
+    lastMovementTime = millis();
+  } else if (isMoving && (millis() - lastMovementTime > 1000)) {
+    // 如果1秒內沒有檢測到運動，標記為停止
+    isMoving = false;
+    movementDuration = (millis() - lastMovementTime) / 1000;
+    Serial.print("運動停止。持續時間: ");
+    Serial.print(movementDuration);
+    Serial.println(" 秒");
+  }
+  
+  // 計算姿態角
+  // 使用簡化的互補濾波
+  float dt = 0.01; // 假設循環時間約10毫秒
+  
+  // 從加速度計計算傾斜角
+  float accelPitch = -(atan2(normAccel.XAxis, sqrt(normAccel.YAxis*normAccel.YAxis + normAccel.ZAxis*normAccel.ZAxis))*180.0)/M_PI;
+  float accelRoll = (atan2(normAccel.YAxis, normAccel.ZAxis)*180.0)/M_PI;
+  
+  // 根據陀螺儀積分計算角度變化
+  pitch = pitch + normGyro.XAxis * dt;
+  roll = roll + normGyro.YAxis * dt;
+  yaw = yaw + normGyro.ZAxis * dt;
+  
+  // 互補濾波: 結合加速度計和陀螺儀數據
+  pitch = pitch * (1 - ALPHA) + accelPitch * ALPHA;
+  roll = roll * (1 - ALPHA) + accelRoll * ALPHA;
+  
+  // 輸出處理後的數據
+  Serial.print("Pitch: ");
+  Serial.print(pitch);
+  Serial.print("° Roll: ");
+  Serial.print(roll);
+  Serial.print("° Yaw: ");
+  Serial.print(yaw);
+  Serial.print("° | ");
+  
+  Serial.print("Accel: ");
+  Serial.print(normAccel.XAxis);
+  Serial.print(", ");
+  Serial.print(normAccel.YAxis);
+  Serial.print(", ");
+  Serial.print(normAccel.ZAxis);
+  Serial.print(" | ");
+  
+  Serial.print("Gyro: ");
+  Serial.print(normGyro.XAxis);
+  Serial.print(", ");
+  Serial.print(normGyro.YAxis);
+  Serial.print(", ");
+  Serial.print(normGyro.ZAxis);
+  Serial.print(" | ");
+  
+  Serial.print("狀態: ");
+  Serial.println(isMoving ? "運動中" : "靜止");
+  
+  delay(10);
+}
+```
+
+### 3. 土壤濕度與氣體感測示例
+```cpp
+// AI生成的土壤濕度與氣體感測器融合代碼
+#include <LiquidCrystal_I2C.h>
+
+// 感測器連接PIN
+#define SOIL_MOISTURE_PIN A0  // 土壤濕度感測器模擬輸入
+#define GAS_SENSOR_PIN A1     // MQ氣體感測器模擬輸入
+#define DIGITAL_SOIL_PIN 7    // 土壤濕度數位輸出（乾燥閾值）
+#define BUZZER_PIN 8          // 蜂鳴器
+#define LED_PIN 9             // 提示LED
+
+// LCD初始化 (I2C地址, 列數, 行數)
+LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 // 感測器閾值設定
-const int LIGHT_THRESHOLD = 500;  // 光線閾值
-const int TEMP_THRESHOLD = 30;    // 溫度閾值（攝氏度）
+#define SOIL_DRY_THRESHOLD 700     // 乾燥閾值（模擬值）
+#define SOIL_WET_THRESHOLD 400     // 濕潤閾值（模擬值）
+#define GAS_WARNING_THRESHOLD 500  // 氣體濃度警告閾值
 
-// 數據處理變量
-int lightValues[10];              // 光線數據緩衝區
-int tempValues[10];               // 溫度數據緩衝區
-int bufferIndex = 0;              // 緩衝區索引
+// 數據採集變量
+int soilMoistureValue = 0;
+int gasSensorValue = 0;
+int soilMoisturePercent = 0;
+
+// 數據緩衝區
+const int BUFFER_SIZE = 10;
+int soilBuffer[BUFFER_SIZE];
+int gasBuffer[BUFFER_SIZE];
+int bufferIndex = 0;
+
+// 警報狀態
+bool moistureAlarmState = false;
+bool gasAlarmState = false;
+
+// 時間變量
+unsigned long lastReadTime = 0;
+unsigned long lastDisplayTime = 0;
+unsigned long lastLogTime = 0;
 
 void setup() {
-  pinMode(buttonPin, INPUT_PULLUP);
-  pinMode(ledPin, OUTPUT);
   Serial.begin(9600);
   
-  Serial.println("多感測器融合系統初始化完成");
-  Serial.println("格式: 光線值, 溫度值, 按鈕狀態, LED狀態");
+  // 初始化LCD
+  lcd.init();
+  lcd.backlight();
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Soil & Gas");
+  lcd.setCursor(0, 1);
+  lcd.print("Monitoring System");
+  
+  // 設置引腳模式
+  pinMode(DIGITAL_SOIL_PIN, INPUT);
+  pinMode(BUZZER_PIN, OUTPUT);
+  pinMode(LED_PIN, OUTPUT);
+  
+  // 初始化緩衝區
+  for (int i = 0; i < BUFFER_SIZE; i++) {
+    soilBuffer[i] = 0;
+    gasBuffer[i] = 0;
+  }
+  
+  // 等待感測器穩定
+  delay(2000);
+  
+  Serial.println("土壤濕度與氣體濃度監測系統初始化完成");
+  Serial.println("格式: 土壤濕度(原始值), 土壤濕度(%), 土壤狀態, 氣體濃度, 氣體狀態");
 }
 
 void loop() {
-  // 讀取感測器數據
-  int lightValue = analogRead(lightSensorPin);
+  unsigned long currentMillis = millis();
   
-  // 將溫度感測器讀數轉換為攝氏度 (適用於TMP36感測器)
-  int tempReading = analogRead(tempSensorPin);
-  float voltage = tempReading * 5.0 / 1024.0;
-  float tempCelsius = (voltage - 0.5) * 100;
-  
-  int buttonState = digitalRead(buttonPin);
-  
-  // 更新數據緩衝區
-  lightValues[bufferIndex] = lightValue;
-  tempValues[bufferIndex] = tempCelsius;
-  bufferIndex = (bufferIndex + 1) % 10;  // 循環緩衝區
-  
-  // 計算平均值進行濾波
-  int avgLight = calculateAverage(lightValues, 10);
-  float avgTemp = calculateAverage(tempValues, 10);
-  
-  // 融合邏輯決策
-  boolean ledState = false;
-  
-  // 條件1: 光線暗且溫度高
-  if (avgLight < LIGHT_THRESHOLD && avgTemp > TEMP_THRESHOLD) {
-    ledState = true;
-  }
-  
-  // 條件2: 按鈕按下同時推翻之前的決定
-  if (buttonState == LOW) {
-    ledState = !ledState;
-  }
-  
-  // 執行決策
-  digitalWrite(ledPin, ledState);
-  
-  // 輸出狀態
-  Serial.print(avgLight);
-  Serial.print(", ");
-  Serial.print(avgTemp);
-  Serial.print("°C, ");
-  Serial.print(buttonState == LOW ? "Pressed" : "Released");
-  Serial.print(", ");
-  Serial.println(ledState ? "ON" : "OFF");
-  
-  delay(100);  // 適度延遲以穩定讀數
-}
-
-// 計算數組平均值的輔助函數
-float calculateAverage(int values[], int size) {
-  long sum = 0;
-  for (int i = 0; i < size; i++) {
-    sum += values[i];
-  }
-  return (float)sum / size;
-}
-```
-
-### 2. 感測器自動校準示例
-```cpp
-// AI生成的感測器自動校準代碼
-const int sensorPin = A0;      // 感測器連接針腳
-const int ledPin = 13;         // 校準指示燈
-
-// 校準變量
-int minValue = 1023;           // 記錄最小值，初始為最大可能值
-int maxValue = 0;              // 記錄最大值，初始為最小可能值
-int calibratedMin = 0;         // 校準後的最小值
-int calibratedMax = 1023;      // 校準後的最大值
-bool isCalibrating = true;     // 校準狀態
-unsigned long calibrationStartTime = 0;  // 校準開始時間
-const unsigned long CALIBRATION_DURATION = 5000;  // 校準持續5秒
-
-void setup() {
-  pinMode(ledPin, OUTPUT);
-  Serial.begin(9600);
-  Serial.println("感測器校準系統啟動");
-  Serial.println("請在LED閃爍期間展示感測器的全部範圍...");
-  
-  // 開始校準
-  calibrationStartTime = millis();
-  digitalWrite(ledPin, HIGH);  // 打開LED表示校準中
-}
-
-void loop() {
-  // 檢查是否在校準模式
-  if (isCalibrating) {
-    // 讀取感測器並更新範圍
-    int sensorValue = analogRead(sensorPin);
-    if (sensorValue < minValue) minValue = sensorValue;
-    if (sensorValue > maxValue) maxValue = sensorValue;
+  // 每500毫秒讀取一次感測器數據
+  if (currentMillis - lastReadTime >= 500) {
+    lastReadTime = currentMillis;
     
-    // 每500ms閃爍LED指示校準進行中
-    digitalWrite(ledPin, ((millis() - calibrationStartTime) / 250) % 2);
+    // 讀取土壤濕度感測器
+    soilMoistureValue = analogRead(SOIL_MOISTURE_PIN);
+    bool digitalSoilState = digitalRead(DIGITAL_SOIL_PIN);
     
-    // 顯示校準進度
-    Serial.print("校準中: ");
-    Serial.print(sensorValue);
-    Serial.print(" (");
-    Serial.print(minValue);
-    Serial.print("-");
-    Serial.print(maxValue);
-    Serial.println(")");
+    // 讀取氣體感測器
+    gasSensorValue = analogRead(GAS_SENSOR_PIN);
     
-    // 檢查校準是否完成
-    if (millis() - calibrationStartTime >= CALIBRATION_DURATION) {
-      isCalibrating = false;
-      digitalWrite(ledPin, LOW);  // 關閉LED表示校準完成
-      
-      // 設置校準範圍，加入少量邊距
-      calibratedMin = minValue + (maxValue - minValue) * 0.05;  // 5%邊距
-      calibratedMax = maxValue - (maxValue - minValue) * 0.05;  // 5%邊距
-      
-      Serial.println("\n校準完成!");
-      Serial.print("感測器範圍: ");
-      Serial.print(minValue);
-      Serial.print(" - ");
-      Serial.println(maxValue);
-      Serial.print("實際使用範圍: ");
-      Serial.print(calibratedMin);
-      Serial.print(" - ");
-      Serial.println(calibratedMax);
-      Serial.println("現在進入正常操作模式...\n");
+    // 將土壤濕度轉換為百分比 (假設0-1023對應0-100%)
+    // 注意：某些土壤濕度感測器在乾燥時值較高，潮濕時值較低
+    soilMoisturePercent = map(soilMoistureValue, 1023, 0, 0, 100);
+    // 限制在0-100範圍內
+    soilMoisturePercent = constrain(soilMoisturePercent, 0, 100);
+    
+    // 更新緩衝區
+    soilBuffer[bufferIndex] = soilMoistureValue;
+    gasBuffer[bufferIndex] = gasSensorValue;
+    bufferIndex = (bufferIndex + 1) % BUFFER_SIZE;
+    
+    // 計算平均值進行濾波
+    int soilAvg = 0;
+    int gasAvg = 0;
+    for (int i = 0; i < BUFFER_SIZE; i++) {
+      soilAvg += soilBuffer[i];
+      gasAvg += gasBuffer[i];
     }
-  } 
-  else {
-    // 正常操作模式
-    int rawValue = analogRead(sensorPin);
+    soilAvg /= BUFFER_SIZE;
+    gasAvg /= BUFFER_SIZE;
     
-    // 應用校準 - 將原始值映射到0-100範圍
-    int calibratedValue = map(rawValue, calibratedMin, calibratedMax, 0, 100);
+    // 檢查土壤濕度警報條件
+    if (soilAvg > SOIL_DRY_THRESHOLD && !moistureAlarmState) {
+      moistureAlarmState = true;
+      triggerAlarm(true, "土壤過於乾燥!");
+    } 
+    else if (soilAvg < SOIL_WET_THRESHOLD && moistureAlarmState) {
+      moistureAlarmState = false;
+      stopAlarm("土壤濕度已回復正常");
+    }
     
-    // 限制在有效範圍內
-    calibratedValue = constrain(calibratedValue, 0, 100);
-    
-    // 顯示結果
-    Serial.print("原始值: ");
-    Serial.print(rawValue);
-    Serial.print(", 校準後百分比: ");
-    Serial.print(calibratedValue);
-    Serial.println("%");
-    
-    delay(200);  // 減少輸出頻率
-  }
-}
-```
-
-### 3. 進階數據濾波器示例
-```cpp
-// AI生成的進階數字濾波器
-const int sensorPin = A0;       // 感測器輸入
-const int outputPin = 9;        // 輸出針腳
-
-// 濾波器配置
-const int WINDOW_SIZE = 16;     // 移動窗口大小
-int readings[WINDOW_SIZE];      // 讀數數組
-int readIndex = 0;              // 當前索引
-long total = 0;                 // 總和
-
-// 中值濾波器參數
-const int MEDIAN_SIZE = 5;      // 中值過濾窗口大小
-int medianValues[MEDIAN_SIZE];  // 中值過濾數據
-
-// 卡爾曼濾波參數
-float kalmanEstimate = 0;       // 估計值
-float kalmanError = 1;          // 估計誤差
-float kalmanMeasurement = 0;    // 測量值
-float kalmanQ = 0.01;           // 過程噪聲
-float kalmanR = 0.1;            // 測量噪聲
-float kalmanGain = 0;           // 卡爾曼增益
-
-void setup() {
-  pinMode(outputPin, OUTPUT);
-  Serial.begin(9600);
-  
-  // 初始化讀數數組
-  for (int i = 0; i < WINDOW_SIZE; i++) {
-    readings[i] = 0;
+    // 檢查氣體感測器警報條件
+    if (gasAvg > GAS_WARNING_THRESHOLD && !gasAlarmState) {
+      gasAlarmState = true;
+      triggerAlarm(true, "空氣品質異常!");
+    } 
+    else if (gasAvg < GAS_WARNING_THRESHOLD - 50 && gasAlarmState) {
+      gasAlarmState = false;
+      stopAlarm("空氣品質已回復正常");
+    }
   }
   
-  Serial.println("進階數字濾波器系統啟動");
-  Serial.println("格式: 原始值, 移動平均, 中值, 卡爾曼濾波");
-}
-
-void loop() {
-  // 讀取感測器原始值
-  int rawValue = analogRead(sensorPin);
-  
-  // 1. 移動平均濾波
-  total = total - readings[readIndex];
-  readings[readIndex] = rawValue;
-  total = total + readings[readIndex];
-  readIndex = (readIndex + 1) % WINDOW_SIZE;
-  int movingAverage = total / WINDOW_SIZE;
-  
-  // 2. 中值濾波
-  for (int i = 0; i < MEDIAN_SIZE-1; i++) {
-    medianValues[i] = medianValues[i+1];
-  }
-  medianValues[MEDIAN_SIZE-1] = rawValue;
-  int medianValue = calculateMedian(medianValues, MEDIAN_SIZE);
-  
-  // 3. 卡爾曼濾波
-  kalmanMeasurement = rawValue;
-  
-  // 預測步驟
-  // 這裡使用簡化的卡爾曼濾波器，假設系統模型為靜態
-  
-  // 更新步驟
-  kalmanError = kalmanError + kalmanQ;
-  kalmanGain = kalmanError / (kalmanError + kalmanR);
-  kalmanEstimate = kalmanEstimate + kalmanGain * (kalmanMeasurement - kalmanEstimate);
-  kalmanError = (1 - kalmanGain) * kalmanError;
-  
-  // 輸出所有濾波結果以進行比較
-  Serial.print(rawValue);
-  Serial.print(", ");
-  Serial.print(movingAverage);
-  Serial.print(", ");
-  Serial.print(medianValue);
-  Serial.print(", ");
-  Serial.println(kalmanEstimate);
-  
-  // 使用卡爾曼濾波結果控制輸出（比如LED亮度）
-  analogWrite(outputPin, map(kalmanEstimate, 0, 1023, 0, 255));
-  
-  delay(50);  // 適度延遲
-}
-
-// 計算中值的輔助函數
-int calculateMedian(int values[], int size) {
-  // 創建臨時數組進行排序而不修改原數組
-  int temp[size];
-  for (int i = 0; i < size; i++) {
-    temp[i] = values[i];
-  }
-  
-  // 簡單的冒泡排序
-  for (int i = 0; i < size-1; i++) {
-    for (int j = 0; j < size-i-1; j++) {
-      if (temp[j] > temp[j+1]) {
-        int swap = temp[j];
-        temp[j] = temp[j+1];
-        temp[j+1] = swap;
+  // 每1000毫秒更新一次LCD顯示
+  if (currentMillis - lastDisplayTime >= 1000) {
+    lastDisplayTime = currentMillis;
+    
+    // 計算平均值
+    int soilAvg = 0;
+    int gasAvg = 0;
+    for (int i = 0; i < BUFFER_SIZE; i++) {
+      soilAvg += soilBuffer[i];
+      gasAvg += gasBuffer[i];
+    }
+    soilAvg /= BUFFER_SIZE;
+    gasAvg /= BUFFER_SIZE;
+    
+    // 第一行顯示土壤濕度
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("Soil: ");
+    lcd.print(soilMoisturePercent);
+    lcd.print("%");
+    
+    // 第二行顯示氣體感測器讀數與狀態
+    lcd.setCursor(0, 1);
+    lcd.print("Gas: ");
+    lcd.print(gasAvg);
+    
+    lcd.setCursor(11, 1);
+    if (gasAvg > GAS_WARNING_THRESHOLD) {
+      lcd.print("WARN!");
+    } else {
+      lcd.print("OK");
+    }
+    
+    // 每10秒記錄一次數據
+    if (currentMillis - lastLogTime >= 10000) {
+      lastLogTime = currentMillis;
+      
+      Serial.print("土壤濕度: ");
+      Serial.print(soilAvg);
+      Serial.print(" (");
+      Serial.print(soilMoisturePercent);
+      Serial.print("%)");
+      
+      if (soilAvg > SOIL_DRY_THRESHOLD) {
+        Serial.print(" - 乾燥");
+      } 
+      else if (soilAvg < SOIL_WET_THRESHOLD) {
+        Serial.print(" - 濕潤");
+      } 
+      else {
+        Serial.print(" - 適中");
+      }
+      
+      Serial.print(" | 氣體濃度: ");
+      Serial.print(gasAvg);
+      
+      if (gasAvg > GAS_WARNING_THRESHOLD) {
+        Serial.println(" - 警告!");
+      } else {
+        Serial.println(" - 正常");
       }
     }
   }
   
-  // 返回中間值
-  return temp[size/2];
+  // 如果有任何警報，控制蜂鳴器
+  if (moistureAlarmState || gasAlarmState) {
+    digitalWrite(LED_PIN, ((currentMillis / 500) % 2) ? HIGH : LOW); // LED閃爍
+    if ((currentMillis / 1000) % 2 == 0) { // 每2秒蜂鳴一次
+      tone(BUZZER_PIN, 1000, 100);
+    }
+  } else {
+    digitalWrite(LED_PIN, LOW);
+    noTone(BUZZER_PIN);
+  }
+}
+
+// 觸發警報函數
+void triggerAlarm(bool playSound, String message) {
+  Serial.print("警報觸發: ");
+  Serial.println(message);
+  
+  if (playSound) {
+    tone(BUZZER_PIN, 1000, 1000);
+  }
+}
+
+// 停止警報函數
+void stopAlarm(String message) {
+  Serial.print("警報解除: ");
+  Serial.println(message);
+  noTone(BUZZER_PIN);
 }
 ```
 
-## AI提示範例（感測器進階應用）
+## AI提示範例（新型感測器應用）
 
-1. "設計一個自動校準系統，能夠在啟動時自動校準光敏電阻的最大和最小值。"
+1. "使用DHT22溫濕度感測器創建環境監測系統，當溫度超過28度或濕度超過80%時發出警報。"
 
-2. "開發一個數字濾波器，能同時使用移動平均、中值濾波和卡爾曼濾波處理感測器數據，並比較不同結果。"
+2. "設計一個使用MPU6050加速度陀螺儀模組的姿態檢測系統，能夠識別靜止、走路和跑步三種狀態。"
 
-3. "創建一個系統同時讀取光敏電阻和傾斜感測器，當環境變暗且檢測到傾斜時，以不同頻率閃爍LED。"
+3. "創建一個智能植物監測站，使用土壤濕度感測器和DHT22監測植物生長環境，通過LCD顯示器顯示數據。"
 
-4. "設計一個自適應閾值算法，能夠根據環境條件的變化自動調整感測器觸發閾值。"
+4. "實現一個使用震動感測器(SW-420)的安全監控系統，能夠檢測異常振動並通過LCD顯示和蜂鳴器提示。"
 
-5. "開發一個多模式感測器監測系統，有'節能模式'、'標準模式'和'高精度模式'，每種模式有不同的採樣頻率和處理方法。"
+5. "開發一個空氣品質監測系統，使用MQ-135氣體感測器測量空氣污染，並通過LED指示不同污染等級。"
 
-6. "實現一個感測器數據異常檢測系統，能夠識別並過濾感測器突發的不合理數據。"
+6. "設計一個人體互動裝置，使用觸摸感測器(TTP223B)和MPU6050檢測不同的手勢和動作，控制LED的不同顯示模式。"
 
-7. "設計一個基於感測器數據的預測算法，能夠提前預測環境變化趨勢並做出反應。"
+7. "實現一個氣象站，結合DHT22溫濕度感測器和BMP280氣壓感測器，顯示當前氣象數據並預測天氣變化。"
+
+8. "開發一個智能門禁系統，使用霍爾效應感測器檢測磁性物體靠近，結合溫濕度感測器監控環境，並通過LCD顯示狀態。"
+
+9. "設計一個運動數據記錄器，使用MPU6050記錄運動軌跡和強度，並使用SD卡儲存數據以供後續分析。"
+
+10. "創建一個環境感應藝術裝置，根據DHT22溫濕度感測器和觸摸感測器的輸入，控制LED燈的亮度、顏色和閃爍模式。"
 
 ---
 
