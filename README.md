@@ -33,11 +33,18 @@
 
 ## 安裝指南
 
-1. 安裝Arduino IDE
-2. 安裝必要的函式庫：
-   - 在Arduino IDE中選擇「工具」>「管理程式庫」
-   - 搜尋並安裝 DHT sensor library
-   - 搜尋並安裝 MPU6050 library
+1. 前往 [GitHub註冊頁面](https://github.com/join) 建立免費帳號。
+2. 學生建議申請 [GitHub Student Developer Pack](https://education.github.com/pack) 可免費啟用 Copilot。
+3. 申請通過後，進入 [Copilot設定頁](https://github.com/settings/copilot) 啟用 Copilot。
+4. 在 VS Code 或 Cursor 編輯器安裝 Copilot 擴充功能，登入 GitHub 帳號即可使用。
+
+## VS Code Insiders 下載安裝教學
+
+1. 前往 [VS Code Insiders官方下載頁](https://code.visualstudio.com/insiders/) 下載對應作業系統版本。
+2. 安裝後啟動 VS Code Insiders。
+3. 進入 Extensions 市集，搜尋並安裝「Arduino」、「C/C++」、「GitHub Copilot」等擴充功能。
+4. 登入 GitHub 帳號以啟用 Copilot。
+5. 建議同步安裝 [Cursor編輯器](https://cursor.sh/) 以體驗更多AI輔助功能。
 
 ## 接線圖
 
