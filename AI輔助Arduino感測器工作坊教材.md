@@ -1,642 +1,166 @@
 # AI輔助Arduino新型感測器進階應用工作坊
-版本：1.3.0
+版本：1.3.2
 最後更新：2025/04/03
 
-## AI輔助新型感測器進階應用 (10:00-12:00)
+## 課程重點與目標
 
-### AI輔助工具與Arduino感測器開發介紹 (10:00-10:15)
-- AI輔助開發工具在感測器應用中的優勢
-  - Cursor與GitHub Copilot功能介紹
-  - 感測器專用AI提示詞技巧
-- 本次專題：智慧型運動姿態監測器
-  - 專題目標與應用場景
-  - 硬體與軟體需求說明
+本工作坊將引導學生運用所有指定材料，結合AI輔助開發工具（包含GitHub Copilot、Cursor與Gemini AI API），設計並實作一個開放式專題。學生需發揮創意，解決生活中實際問題或創造新體驗，並於課程結束時展示成果。
 
-### 環境感測基礎：DHT22溫濕度感測器 (10:15-10:35)
-- DHT22溫濕度感測器介紹
-  - 感測器原理與特性
-  - 基本接線與程式設計
-- 運動環境監測實作
-  - 溫濕度數據讀取與處理
-  - Serial Monitor數據視覺化
-- AI輔助開發實戰
-  - 使用AI生成基礎程式碼
-  - 數據格式優化與顯示
+### 必用材料
+- Arduino Uno 相容板 ×1
+- USB 連接線 ×1
+- 麵包板（400孔）×1
+- 跳線（公對公）×10
+- DHT22 溫濕度感測器 ×1
+- MPU6050 加速度陀螺儀模組 ×1
+- 10kΩ 電阻 ×2
+- 蜂鳴器 ×1
 
-### 運動感測核心：MPU6050模組應用 (10:35-11:00)
-- MPU6050加速度陀螺儀模組基礎
-  - 6軸感測器工作原理
-  - 基本接線與初始化設定
-- 姿態感測實作
-  - 加速度與角速度讀取
-  - 簡單姿態計算方法
-- AI輔助開發實戰
-  - 使用AI優化感測器初始化
-  - 姿態計算代碼生成
+---
 
-### 數據處理與運動識別 (11:00-11:20)
-- 基礎數據處理技術
-  - 移動平均濾波
-  - 簡單閾值檢測
-- 運動狀態識別
-  - 靜止狀態判定
-  - 基本運動模式識別
+## 課程流程
 
-### 專題實作：智慧型運動姿態監測器 (11:20-11:45)
-- 系統整合
-  - 硬體接線與測試
-  - 程式碼模組整合
-- 功能實現
-  - 環境舒適度監測
-  - 基本運動姿態識別
-  - Serial Monitor即時顯示
+### 1. 開場與目標設定（10分鐘）
+- 介紹所有材料的功能與應用情境。
+- 強調本次專題為「開放式挑戰」：請學生運用所有材料，設計一個能解決生活中某個問題或創造新體驗的智慧裝置。
 
-### 成果展示與優化建議 (11:45-12:00)
-- 成果測試與展示
-  - 功能演示與數據分析
-  - 常見問題解決方案
-- 後續優化方向
-  - 進階功能建議
-  - 實際應用場景討論
+### 2. 感測器與元件基礎操作（30分鐘）
+- DHT22：環境溫濕度監測，數據讀取與警報應用。
+- MPU6050：動作/姿態偵測，數據視覺化。
+- 蜂鳴器：警示或互動提示。
+- 麵包板/跳線/電阻：電路連接實作。
 
-## 參考程式碼
+### 3. AI輔助開發實作（20分鐘）
+- 使用Cursor、GitHub Copilot或Gemini AI API協助感測器程式碼生成與整合。
+- 示範如何用AI優化數據處理與警報邏輯。
+- **Gemini AI API應用說明**：
+  - Gemini AI API是Google推出的生成式AI服務，能協助自動生成程式碼、解釋邏輯、優化專案設計。
+  - 學生可註冊Google帳號並申請Gemini API金鑰，於[Google AI Studio](https://aistudio.google.com/)獲取教學與API文件。
+  - 可透過Python、Node.js等語言呼叫API，將專題需求、程式註解或錯誤訊息發送給Gemini，獲得即時AI建議。
+  - 範例：
+    ```python
+    import google.generativeai as genai
+    genai.configure(api_key="你的API金鑰")
+    model = genai.GenerativeModel('gemini-pro')
+    response = model.generate_content("請幫我產生一段Arduino讀取DHT22與MPU6050的程式碼")
+    print(response.text)
+    ```
+  - 建議將Gemini AI API與Copilot、Cursor等工具搭配使用，提升AI輔助開發的多元性。
 
-### 1. 基礎版本：環境與姿態監測
+### 4. 開放式專題設計挑戰（40分鐘）
+- 學生分組討論，必須用到所有材料，構思一個主題（如：健康監測、環境警報、互動裝置等）。
+- 引導學生思考：
+  - 如何結合溫濕度、動作偵測與警報？
+  - 生活中有哪些場景可以應用這些感測器？
+  - 如何讓裝置有「互動性」或「自動反應」？
+
+### 5. 專題實作與測試（30分鐘）
+- 學生動手組裝、撰寫程式、測試功能。
+- 鼓勵學生善用AI工具解決程式問題。
+
+### 6. 成果展示與回饋（10分鐘）
+- 各組簡短分享設計理念與成果。
+- 教師給予優化建議與實際應用延伸討論。
+
+---
+
+## 專題題目範例（僅供參考，學生可自由發揮）
+
+1. 智慧環境安全警報器：溫度/濕度異常或偵測到劇烈動作時，蜂鳴器發出警報。
+2. 個人健康運動監測站：結合姿態感測與環境監控，記錄運動狀態並在環境不適時提醒休息。
+3. 互動型桌上小幫手：當偵測到有人靠近（動作感測）且環境過熱/潮濕時，蜂鳴器提醒並顯示狀態。
+
+---
+
+## AI輔助開發提示範例
+
+- "請幫我生成一段能同時讀取DHT22與MPU6050數據並根據條件觸發蜂鳴器的Arduino程式碼。"
+- "如何讓蜂鳴器在溫度超過28度或偵測到劇烈運動時自動響起？"
+- "請協助整合DHT22、MPU6050與蜂鳴器的功能，並將結果顯示於Serial Monitor。"
+- "如何用Gemini AI API優化我的Arduino感測器專題設計？"
+
+---
+
+## 綜合範例：智慧環境與運動安全警報器
+
+### 專案目標
+結合DHT22溫濕度感測器、MPU6050加速度陀螺儀、蜂鳴器，利用麵包板、跳線與10kΩ電阻，打造一個能即時監控環境與運動狀態並自動警報的智慧裝置。全程可搭配AI輔助工具（如Gemini API、Copilot、Cursor）協助程式設計與除錯。
+
+### 功能說明
+- 監測環境溫度、濕度，超過閾值自動警報
+- 偵測使用者運動狀態（靜止/走路/劇烈運動/跌倒）
+- 當偵測到危險（高溫、過濕、跌倒等）時蜂鳴器自動響起
+- 所有數據即時顯示於Serial Monitor
+
+### 材料與接線
+- DHT22 DATA → Arduino Pin 2（與VCC間加10kΩ上拉電阻）
+- DHT22 VCC → 5V
+- DHT22 GND → GND
+- MPU6050 SDA → A4，SCL → A5，VCC → 5V，GND → GND
+- 蜂鳴器 → Pin 8
+- 其餘連接用麵包板與跳線
+
+### 程式設計重點
+- 使用DHT與MPU6050函式庫分別讀取環境與運動數據
+- 設定溫濕度與運動狀態警報閾值
+- 判斷條件時觸發蜂鳴器
+- 利用AI輔助工具優化程式結構、除錯與提示
+
+### AI輔助應用建議
+- 用Gemini API或Copilot生成感測器初始化與數據判斷程式碼
+- 用Cursor快速整合多感測器程式片段
+- 遇到錯誤時將錯誤訊息丟給AI協助除錯
+- 可請AI協助優化警報邏輯或數據視覺化
+
+### 範例程式片段（可用AI生成完整程式）
 ```cpp
-// 智慧型運動姿態監測器基礎版本
 #include <Wire.h>
 #include <MPU6050.h>
 #include <DHT.h>
 
 #define DHTPIN 2
 #define DHTTYPE DHT22
+#define BUZZER_PIN 8
 DHT dht(DHTPIN, DHTTYPE);
 MPU6050 mpu;
-
-// 運動閾值設定
-const float MOVEMENT_THRESHOLD = 0.3;  // g力加速度閾值
-const float ROTATION_THRESHOLD = 15.0;  // 度/秒閾值
-
-// 環境舒適度閾值
-const float TEMP_MAX = 28.0;   // 最高舒適溫度
-const float TEMP_MIN = 18.0;   // 最低舒適溫度
-const float HUMID_MAX = 70.0;  // 最高舒適濕度
-const float HUMID_MIN = 40.0;  // 最低舒適濕度
-
-// 運動狀態變量
-bool isMoving = false;
-String currentPosture = "未知";
 
 void setup() {
   Serial.begin(115200);
   Wire.begin();
-  
-  // 初始化感測器
   dht.begin();
-  while(!mpu.begin(MPU6050_SCALE_2000DPS, MPU6050_RANGE_2G)) {
-    Serial.println("MPU6050初始化失敗！請檢查接線");
-    delay(500);
-  }
-  
-  // 校準MPU6050
+  mpu.begin(MPU6050_SCALE_2000DPS, MPU6050_RANGE_2G);
   mpu.calibrateGyro();
-  
-  Serial.println("智慧型運動姿態監測器初始化完成！");
-  Serial.println("溫度(°C), 濕度(%), 舒適度, 姿態角度, 運動狀態");
-}
-
-void loop() {
-  // 讀取環境數據
-  float humidity = dht.readHumidity();
-  float temperature = dht.readTemperature();
-  
-  // 讀取運動數據
-  Vector normAccel = mpu.readNormalizeAccel();
-  Vector normGyro = mpu.readNormalizeGyro();
-  
-  // 計算姿態（簡化版）
-  float pitch = -(atan2(normAccel.XAxis, sqrt(normAccel.YAxis*normAccel.YAxis + 
-                 normAccel.ZAxis*normAccel.ZAxis))*180.0)/M_PI;
-  float roll = (atan2(normAccel.YAxis, normAccel.ZAxis)*180.0)/M_PI;
-  
-  // 檢測運動狀態
-  float accelMagnitude = sqrt(
-    normAccel.XAxis * normAccel.XAxis + 
-    normAccel.YAxis * normAccel.YAxis + 
-    normAccel.ZAxis * normAccel.ZAxis
-  );
-  
-  // 更新運動狀態
-  if (abs(accelMagnitude - 1.0) > MOVEMENT_THRESHOLD) {
-    isMoving = true;
-    if (pitch > 45) currentPosture = "前傾";
-    else if (pitch < -45) currentPosture = "後仰";
-    else if (roll > 45) currentPosture = "右傾";
-    else if (roll < -45) currentPosture = "左傾";
-    else currentPosture = "直立";
-  } else {
-    isMoving = false;
-    currentPosture = "靜止";
-  }
-  
-  // 判斷環境舒適度
-  String comfort = "適中";
-  if (temperature > TEMP_MAX || humidity > HUMID_MAX) {
-    comfort = "不適";
-  } else if (temperature < TEMP_MIN || humidity < HUMID_MIN) {
-    comfort = "偏冷";
-  }
-  
-  // 輸出數據
-  Serial.print("溫度: ");
-  Serial.print(temperature, 1);
-  Serial.print("°C, 濕度: ");
-  Serial.print(humidity, 1);
-  Serial.print("%, 舒適度: ");
-  Serial.print(comfort);
-  Serial.print(", 姿態: ");
-  Serial.print(currentPosture);
-  Serial.print(", 狀態: ");
-  Serial.println(isMoving ? "運動中" : "靜止");
-  
-  delay(100);  // 10Hz更新率
-}
-```
-
-### 2. 進階版本：可選功能
-```cpp
-// 在基礎版本基礎上可以選擇性添加：
-// 1. 運動時間統計
-// 2. 卡路里粗略估算
-// 3. 運動模式識別（走路/跑步）
-// 4. 數據記錄功能
-```
-
-### 3. DHT22溫濕度感測器示例
-```cpp
-// AI生成的DHT22溫濕度感測器代碼
-#include <DHT.h>
-
-#define DHTPIN 2       // DHT22連接到數位引腳2
-#define DHTTYPE DHT22  // 使用DHT22感測器
-
-// 初始化DHT感測器
-DHT dht(DHTPIN, DHTTYPE);
-
-// 數據緩衝區用於計算移動平均
-float tempReadings[10] = {0};
-float humReadings[10] = {0};
-int readIndex = 0;
-
-// 溫度單位轉換函數
-float celsiusToFahrenheit(float celsius) {
-  return celsius * 1.8 + 32.0;
-}
-
-void setup() {
-  Serial.begin(9600);
-  
-  // 初始化DHT感測器
-  dht.begin();
-  
-  Serial.println("DHT22溫濕度監測系統初始化完成");
-  Serial.println("格式: 溫度(C), 濕度(%), 露點(C)");
-  
-  delay(2000);
-}
-
-void loop() {
-  // 等待2秒以確保穩定讀數
-  delay(2000);
-  
-  // 讀取溫度與濕度
-  float humidity = dht.readHumidity();
-  float temperature = dht.readTemperature();
-  
-  // 檢查讀取是否成功
-  if (isnan(humidity) || isnan(temperature)) {
-    Serial.println("無法從DHT感測器讀取數據!");
-    return;
-  }
-  
-  // 計算露點
-  float dewPoint = temperature - (100 - humidity) / 5;
-  
-  // 更新移動平均緩衝區
-  tempReadings[readIndex] = temperature;
-  humReadings[readIndex] = humidity;
-  readIndex = (readIndex + 1) % 10;
-  
-  // 計算移動平均
-  float avgTemp = 0;
-  float avgHum = 0;
-  for (int i = 0; i < 10; i++) {
-    avgTemp += tempReadings[i];
-    avgHum += humReadings[i];
-  }
-  avgTemp /= 10;
-  avgHum /= 10;
-  
-  // 輸出至序列監視器
-  Serial.print("溫度: ");
-  Serial.print(temperature);
-  Serial.print("°C | ");
-  Serial.print(celsiusToFahrenheit(temperature));
-  Serial.print("°F | 濕度: ");
-  Serial.print(humidity);
-  Serial.print("% | 露點: ");
-  Serial.print(dewPoint);
-  Serial.println("°C");
-  
-  // 檢查溫度警告條件
-  if (temperature > 30) {
-    Serial.println("警告：溫度過高！");
-  }
-}
-```
-
-### 4. MPU6050姿態感測示例
-```cpp
-// AI生成的MPU6050姿態感測與運動檢測代碼
-#include <Wire.h>
-#include <MPU6050.h>
-
-MPU6050 mpu;
-
-// 運動閾值設定
-const float MOVEMENT_THRESHOLD = 0.3;  // g力加速度閾值
-const float ROTATION_THRESHOLD = 15.0;  // 度/秒閾值
-
-// 姿態變量
-float pitch = 0;
-float roll = 0;
-float yaw = 0;
-
-// 運動檢測變量
-bool isMoving = false;
-unsigned long lastMovementTime = 0;
-int movementDuration = 0;
-
-// 數據過濾參數
-const float ALPHA = 0.2; // 低通濾波器參數
-
-void setup() {
-  Serial.begin(115200);
-  Wire.begin();
-  
-  Serial.println("初始化MPU6050...");
-  
-  // 初始化MPU6050
-  while(!mpu.begin(MPU6050_SCALE_2000DPS, MPU6050_RANGE_2G)) {
-    Serial.println("無法找到MPU6050感測器!");
-    delay(500);
-  }
-  
-  // 校準陀螺儀
-  mpu.calibrateGyro();
-  
-  // 設置低功耗模式
-  mpu.setDHPFMode(MPU6050_DHPF_5HZ);
-  
-  Serial.println("MPU6050初始化完成!");
-  Serial.println("格式: Pitch, Roll, AccX, AccY, AccZ, GyroX, GyroY, GyroZ, 運動狀態");
-}
-
-void loop() {
-  // 讀取原始加速度計和陀螺儀數據
-  Vector rawAccel = mpu.readRawAccel();
-  Vector normAccel = mpu.readNormalizeAccel();
-  Vector rawGyro = mpu.readRawGyro();
-  Vector normGyro = mpu.readNormalizeGyro();
-  
-  // 計算加速度總體大小
-  float accelMagnitude = sqrt(
-    normAccel.XAxis * normAccel.XAxis + 
-    normAccel.YAxis * normAccel.YAxis + 
-    normAccel.ZAxis * normAccel.ZAxis
-  );
-  
-  // 檢測是否存在運動
-  bool movementDetected = false;
-  
-  // 檢查加速度是否超過閾值
-  if (abs(accelMagnitude - 1.0) > MOVEMENT_THRESHOLD) {
-    movementDetected = true;
-  }
-  
-  // 檢查旋轉是否超過閾值
-  if (abs(normGyro.XAxis) > ROTATION_THRESHOLD || 
-      abs(normGyro.YAxis) > ROTATION_THRESHOLD || 
-      abs(normGyro.ZAxis) > ROTATION_THRESHOLD) {
-    movementDetected = true;
-  }
-  
-  // 更新運動狀態
-  if (movementDetected) {
-    if (!isMoving) {
-      isMoving = true;
-      Serial.println("運動開始檢測到!");
-    }
-    lastMovementTime = millis();
-  } else if (isMoving && (millis() - lastMovementTime > 1000)) {
-    // 如果1秒內沒有檢測到運動，標記為停止
-    isMoving = false;
-    movementDuration = (millis() - lastMovementTime) / 1000;
-    Serial.print("運動停止。持續時間: ");
-    Serial.print(movementDuration);
-    Serial.println(" 秒");
-  }
-  
-  // 計算姿態角
-  // 使用簡化的互補濾波
-  float dt = 0.01; // 假設循環時間約10毫秒
-  
-  // 從加速度計計算傾斜角
-  float accelPitch = -(atan2(normAccel.XAxis, sqrt(normAccel.YAxis*normAccel.YAxis + normAccel.ZAxis*normAccel.ZAxis))*180.0)/M_PI;
-  float accelRoll = (atan2(normAccel.YAxis, normAccel.ZAxis)*180.0)/M_PI;
-  
-  // 根據陀螺儀積分計算角度變化
-  pitch = pitch + normGyro.XAxis * dt;
-  roll = roll + normGyro.YAxis * dt;
-  yaw = yaw + normGyro.ZAxis * dt;
-  
-  // 互補濾波: 結合加速度計和陀螺儀數據
-  pitch = pitch * (1 - ALPHA) + accelPitch * ALPHA;
-  roll = roll * (1 - ALPHA) + accelRoll * ALPHA;
-  
-  // 輸出處理後的數據
-  Serial.print("Pitch: ");
-  Serial.print(pitch);
-  Serial.print("° Roll: ");
-  Serial.print(roll);
-  Serial.print("° Yaw: ");
-  Serial.print(yaw);
-  Serial.print("° | ");
-  
-  Serial.print("Accel: ");
-  Serial.print(normAccel.XAxis);
-  Serial.print(", ");
-  Serial.print(normAccel.YAxis);
-  Serial.print(", ");
-  Serial.print(normAccel.ZAxis);
-  Serial.print(" | ");
-  
-  Serial.print("Gyro: ");
-  Serial.print(normGyro.XAxis);
-  Serial.print(", ");
-  Serial.print(normGyro.YAxis);
-  Serial.print(", ");
-  Serial.print(normGyro.ZAxis);
-  Serial.print(" | ");
-  
-  Serial.print("狀態: ");
-  Serial.println(isMoving ? "運動中" : "靜止");
-  
-  delay(10);
-}
-```
-
-### 5. 土壤濕度與氣體感測示例
-```cpp
-// AI生成的土壤濕度與氣體感測器融合代碼
-#include <LiquidCrystal_I2C.h>
-
-// 感測器連接PIN
-#define SOIL_MOISTURE_PIN A0  // 土壤濕度感測器模擬輸入
-#define GAS_SENSOR_PIN A1     // MQ氣體感測器模擬輸入
-#define DIGITAL_SOIL_PIN 7    // 土壤濕度數位輸出（乾燥閾值）
-#define BUZZER_PIN 8          // 蜂鳴器
-#define LED_PIN 9             // 提示LED
-
-// LCD初始化 (I2C地址, 列數, 行數)
-LiquidCrystal_I2C lcd(0x27, 16, 2);
-
-// 感測器閾值設定
-#define SOIL_DRY_THRESHOLD 700     // 乾燥閾值（模擬值）
-#define SOIL_WET_THRESHOLD 400     // 濕潤閾值（模擬值）
-#define GAS_WARNING_THRESHOLD 500  // 氣體濃度警告閾值
-
-// 數據採集變量
-int soilMoistureValue = 0;
-int gasSensorValue = 0;
-int soilMoisturePercent = 0;
-
-// 數據緩衝區
-const int BUFFER_SIZE = 10;
-int soilBuffer[BUFFER_SIZE];
-int gasBuffer[BUFFER_SIZE];
-int bufferIndex = 0;
-
-// 警報狀態
-bool moistureAlarmState = false;
-bool gasAlarmState = false;
-
-// 時間變量
-unsigned long lastReadTime = 0;
-unsigned long lastDisplayTime = 0;
-unsigned long lastLogTime = 0;
-
-void setup() {
-  Serial.begin(9600);
-  
-  // 初始化LCD
-  lcd.init();
-  lcd.backlight();
-  lcd.clear();
-  lcd.setCursor(0, 0);
-  lcd.print("Soil & Gas");
-  lcd.setCursor(0, 1);
-  lcd.print("Monitoring System");
-  
-  // 設置引腳模式
-  pinMode(DIGITAL_SOIL_PIN, INPUT);
   pinMode(BUZZER_PIN, OUTPUT);
-  pinMode(LED_PIN, OUTPUT);
-  
-  // 初始化緩衝區
-  for (int i = 0; i < BUFFER_SIZE; i++) {
-    soilBuffer[i] = 0;
-    gasBuffer[i] = 0;
-  }
-  
-  // 等待感測器穩定
-  delay(2000);
-  
-  Serial.println("土壤濕度與氣體濃度監測系統初始化完成");
-  Serial.println("格式: 土壤濕度(原始值), 土壤濕度(%), 土壤狀態, 氣體濃度, 氣體狀態");
+  Serial.println("溫度,濕度,姿態,運動狀態,警報");
 }
 
 void loop() {
-  unsigned long currentMillis = millis();
-  
-  // 每500毫秒讀取一次感測器數據
-  if (currentMillis - lastReadTime >= 500) {
-    lastReadTime = currentMillis;
-    
-    // 讀取土壤濕度感測器
-    soilMoistureValue = analogRead(SOIL_MOISTURE_PIN);
-    bool digitalSoilState = digitalRead(DIGITAL_SOIL_PIN);
-    
-    // 讀取氣體感測器
-    gasSensorValue = analogRead(GAS_SENSOR_PIN);
-    
-    // 將土壤濕度轉換為百分比 (假設0-1023對應0-100%)
-    // 注意：某些土壤濕度感測器在乾燥時值較高，潮濕時值較低
-    soilMoisturePercent = map(soilMoistureValue, 1023, 0, 0, 100);
-    // 限制在0-100範圍內
-    soilMoisturePercent = constrain(soilMoisturePercent, 0, 100);
-    
-    // 更新緩衝區
-    soilBuffer[bufferIndex] = soilMoistureValue;
-    gasBuffer[bufferIndex] = gasSensorValue;
-    bufferIndex = (bufferIndex + 1) % BUFFER_SIZE;
-    
-    // 計算平均值進行濾波
-    int soilAvg = 0;
-    int gasAvg = 0;
-    for (int i = 0; i < BUFFER_SIZE; i++) {
-      soilAvg += soilBuffer[i];
-      gasAvg += gasBuffer[i];
-    }
-    soilAvg /= BUFFER_SIZE;
-    gasAvg /= BUFFER_SIZE;
-    
-    // 檢查土壤濕度警報條件
-    if (soilAvg > SOIL_DRY_THRESHOLD && !moistureAlarmState) {
-      moistureAlarmState = true;
-      triggerAlarm(true, "土壤過於乾燥!");
-    } 
-    else if (soilAvg < SOIL_WET_THRESHOLD && moistureAlarmState) {
-      moistureAlarmState = false;
-      stopAlarm("土壤濕度已回復正常");
-    }
-    
-    // 檢查氣體感測器警報條件
-    if (gasAvg > GAS_WARNING_THRESHOLD && !gasAlarmState) {
-      gasAlarmState = true;
-      triggerAlarm(true, "空氣品質異常!");
-    } 
-    else if (gasAvg < GAS_WARNING_THRESHOLD - 50 && gasAlarmState) {
-      gasAlarmState = false;
-      stopAlarm("空氣品質已回復正常");
-    }
-  }
-  
-  // 每1000毫秒更新一次LCD顯示
-  if (currentMillis - lastDisplayTime >= 1000) {
-    lastDisplayTime = currentMillis;
-    
-    // 計算平均值
-    int soilAvg = 0;
-    int gasAvg = 0;
-    for (int i = 0; i < BUFFER_SIZE; i++) {
-      soilAvg += soilBuffer[i];
-      gasAvg += gasBuffer[i];
-    }
-    soilAvg /= BUFFER_SIZE;
-    gasAvg /= BUFFER_SIZE;
-    
-    // 第一行顯示土壤濕度
-    lcd.clear();
-    lcd.setCursor(0, 0);
-    lcd.print("Soil: ");
-    lcd.print(soilMoisturePercent);
-    lcd.print("%");
-    
-    // 第二行顯示氣體感測器讀數與狀態
-    lcd.setCursor(0, 1);
-    lcd.print("Gas: ");
-    lcd.print(gasAvg);
-    
-    lcd.setCursor(11, 1);
-    if (gasAvg > GAS_WARNING_THRESHOLD) {
-      lcd.print("WARN!");
-    } else {
-      lcd.print("OK");
-    }
-    
-    // 每10秒記錄一次數據
-    if (currentMillis - lastLogTime >= 10000) {
-      lastLogTime = currentMillis;
-      
-      Serial.print("土壤濕度: ");
-      Serial.print(soilAvg);
-      Serial.print(" (");
-      Serial.print(soilMoisturePercent);
-      Serial.print("%)");
-      
-      if (soilAvg > SOIL_DRY_THRESHOLD) {
-        Serial.print(" - 乾燥");
-      } 
-      else if (soilAvg < SOIL_WET_THRESHOLD) {
-        Serial.print(" - 濕潤");
-      } 
-      else {
-        Serial.print(" - 適中");
-      }
-      
-      Serial.print(" | 氣體濃度: ");
-      Serial.print(gasAvg);
-      
-      if (gasAvg > GAS_WARNING_THRESHOLD) {
-        Serial.println(" - 警告!");
-      } else {
-        Serial.println(" - 正常");
-      }
-    }
-  }
-  
-  // 如果有任何警報，控制蜂鳴器
-  if (moistureAlarmState || gasAlarmState) {
-    digitalWrite(LED_PIN, ((currentMillis / 500) % 2) ? HIGH : LOW); // LED閃爍
-    if ((currentMillis / 1000) % 2 == 0) { // 每2秒蜂鳴一次
-      tone(BUZZER_PIN, 1000, 100);
-    }
-  } else {
-    digitalWrite(LED_PIN, LOW);
-    noTone(BUZZER_PIN);
-  }
-}
-
-// 觸發警報函數
-void triggerAlarm(bool playSound, String message) {
-  Serial.print("警報觸發: ");
-  Serial.println(message);
-  
-  if (playSound) {
-    tone(BUZZER_PIN, 1000, 1000);
-  }
-}
-
-// 停止警報函數
-void stopAlarm(String message) {
-  Serial.print("警報解除: ");
-  Serial.println(message);
-  noTone(BUZZER_PIN);
+  float temp = dht.readTemperature();
+  float hum = dht.readHumidity();
+  Vector acc = mpu.readNormalizeAccel();
+  Vector gyro = mpu.readNormalizeGyro();
+  float accelMag = sqrt(acc.XAxis*acc.XAxis + acc.YAxis*acc.YAxis + acc.ZAxis*acc.ZAxis);
+  String posture = "直立";
+  bool danger = false;
+  if (temp > 30 || hum > 70) danger = true;
+  if (accelMag > 2.0) { posture = "跌倒"; danger = true; }
+  else if (accelMag > 1.5) posture = "劇烈運動";
+  else if (accelMag > 1.1) posture = "走路";
+  else posture = "靜止";
+  if (danger) tone(BUZZER_PIN, 1000, 300);
+  else noTone(BUZZER_PIN);
+  Serial.print(temp); Serial.print(",");
+  Serial.print(hum); Serial.print(",");
+  Serial.print(posture); Serial.print(",");
+  Serial.print(accelMag,2); Serial.print(",");
+  Serial.println(danger ? "警報" : "正常");
+  delay(500);
 }
 ```
 
-## AI提示範例（新型感測器應用）
-
-1. "使用DHT22溫濕度感測器創建環境監測系統，當溫度超過28度或濕度超過80%時發出警報。"
-
-2. "設計一個使用MPU6050加速度陀螺儀模組的姿態檢測系統，能夠識別靜止、走路和跑步三種狀態。"
-
-3. "創建一個智能植物監測站，使用土壤濕度感測器和DHT22監測植物生長環境，通過LCD顯示器顯示數據。"
-
-4. "實現一個使用震動感測器(SW-420)的安全監控系統，能夠檢測異常振動並通過LCD顯示和蜂鳴器提示。"
-
-5. "開發一個空氣品質監測系統，使用MQ-135氣體感測器測量空氣污染，並通過LED指示不同污染等級。"
-
-6. "設計一個人體互動裝置，使用觸摸感測器(TTP223B)和MPU6050檢測不同的手勢和動作，控制LED的不同顯示模式。"
-
-7. "實現一個氣象站，結合DHT22溫濕度感測器和BMP280氣壓感測器，顯示當前氣象數據並預測天氣變化。"
-
-8. "開發一個智能門禁系統，使用霍爾效應感測器檢測磁性物體靠近，結合溫濕度感測器監控環境，並通過LCD顯示狀態。"
-
-9. "設計一個運動數據記錄器，使用MPU6050記錄運動軌跡和強度，並使用SD卡儲存數據以供後續分析。"
-
-10. "創建一個環境感應藝術裝置，根據DHT22溫濕度感測器和觸摸感測器的輸入，控制LED燈的亮度、顏色和閃爍模式。"
+### 延伸挑戰
+- 請學生用AI輔助工具優化警報判斷、增加更多狀態分類或串接LCD顯示
+- 鼓勵學生將專題需求、程式片段或錯誤訊息丟給Gemini API或Copilot獲得最佳化建議
 
 ---
 
