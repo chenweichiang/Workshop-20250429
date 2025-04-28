@@ -25,3 +25,10 @@ Icon
 # VS Code/Cursor相關
 .vscode/
 .cursor/
+
+# 其他檔案
+*.log
+__pycache__/
+*.pyc
+.env
+node_modules/

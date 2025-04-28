@@ -4,106 +4,181 @@
 
 ## AI輔助新型感測器進階應用 (10:00-12:00)
 
-### AI輔助工具與Arduino新型感測器開發介紹 (10:00-10:15)
-- AI輔助開發工具在新型感測器應用中的優勢
-  - Cursor與GitHub Copilot功能對比
-  - 感測器專用AI提示詞優化技巧
-- 新型感測器開發常見難題與AI解決方案
-  - 使用AI處理多變量感測器數據
-  - AI協助排除感測器校準與干擾問題
-- 進階AI提示技巧
-  - 環境與運動感測器的專業提示詞構建
-  - 引導AI生成高品質校準與濾波代碼
+### AI輔助工具與Arduino感測器開發介紹 (10:00-10:15)
+- AI輔助開發工具在感測器應用中的優勢
+  - Cursor與GitHub Copilot功能介紹
+  - 感測器專用AI提示詞技巧
+- 本次專題：智慧型運動姿態監測器
+  - 專題目標與應用場景
+  - 硬體與軟體需求說明
 
-### 環境感測技術與數據視覺化 (10:15-10:35)
-- 溫濕度感測器技術深入探討
-  - DHT11與DHT22原理與差異
-  - OneWire溫度感測器數據處理
-- 大氣環境參數監測
-  - BMP280氣壓感測器使用技巧
-  - 綜合環境數據校準與補償
-- 環境數據視覺化
-  - LCD顯示環境參數與趨勢圖
-  - 使用AI設計多參數視覺化界面
+### 環境感測基礎：DHT22溫濕度感測器 (10:15-10:35)
+- DHT22溫濕度感測器介紹
+  - 感測器原理與特性
+  - 基本接線與程式設計
+- 運動環境監測實作
+  - 溫濕度數據讀取與處理
+  - Serial Monitor數據視覺化
+- AI輔助開發實戰
+  - 使用AI生成基礎程式碼
+  - 數據格式優化與顯示
 
-### 運動與姿態感測技術 (10:35-11:00)
-- MPU6050加速度陀螺儀模組應用
-  - 6軸數據獲取與處理原理
-  - 加速度與角速度數據融合
-- 運動模式識別與分析
-  - 使用AI生成運動模式識別算法
-  - 動作閾值檢測與觸發
-- 特殊感測器協同應用
-  - 震動感測器(SW-420)與MPU6050數據融合
-  - 觸摸感測器(TTP223B)與姿態感測結合
+### 運動感測核心：MPU6050模組應用 (10:35-11:00)
+- MPU6050加速度陀螺儀模組基礎
+  - 6軸感測器工作原理
+  - 基本接線與初始化設定
+- 姿態感測實作
+  - 加速度與角速度讀取
+  - 簡單姿態計算方法
+- AI輔助開發實戰
+  - 使用AI優化感測器初始化
+  - 姿態計算代碼生成
 
-### 感測器校準與濾波 (11:00-11:20)
-- 環境感測器校準技術
-  - DHT22溫濕度與BMP280感測器校準方法
-  - 使用參考感測器進行交叉校準
-- 運動感測器數據處理
-  - MPU6050零點漂移補償
-  - 姿態解算與互補濾波
-- 進階數據濾波技術
-  - 卡爾曼濾波器應用於運動數據
-  - 低通/高通濾波器與數字濾波
+### 數據處理與運動識別 (11:00-11:20)
+- 基礎數據處理技術
+  - 移動平均濾波
+  - 簡單閾值檢測
+- 運動狀態識別
+  - 靜止狀態判定
+  - 基本運動模式識別
 
-### 互動裝置實作工作坊 (11:20-11:45)
-#### 專案：智能環境與運動監測系統
-- 專案目標與構思
-  - 創建兼具環境監測與運動檢測功能的系統
-  - 通過AI輔助設計數據處理邏輯
+### 專題實作：智慧型運動姿態監測器 (11:20-11:45)
+- 系統整合
+  - 硬體接線與測試
+  - 程式碼模組整合
+- 功能實現
+  - 環境舒適度監測
+  - 基本運動姿態識別
+  - Serial Monitor即時顯示
 
-- 所需材料
-  - Arduino Uno/相容板
-  - DHT22溫濕度感測器
-  - MPU6050加速度陀螺儀模組
-  - 土壤濕度感測器或氣體感測器(選用)
-  - LCD顯示模組或OLED顯示屏
-  - 電阻與配件套件
-  - 麵包板與跳線
+### 成果展示與優化建議 (11:45-12:00)
+- 成果測試與展示
+  - 功能演示與數據分析
+  - 常見問題解決方案
+- 後續優化方向
+  - 進階功能建議
+  - 實際應用場景討論
 
-- AI輔助開發流程
-  1. **系統架構設計**
-     - 使用AI設計感測器連接與數據流
-     - 定義不同感測器功能優先級
+## 參考程式碼
+
+### 1. 基礎版本：環境與姿態監測
+```cpp
+// 智慧型運動姿態監測器基礎版本
+#include <Wire.h>
+#include <MPU6050.h>
+#include <DHT.h>
+
+#define DHTPIN 2
+#define DHTTYPE DHT22
+DHT dht(DHTPIN, DHTTYPE);
+MPU6050 mpu;
+
+// 運動閾值設定
+const float MOVEMENT_THRESHOLD = 0.3;  // g力加速度閾值
+const float ROTATION_THRESHOLD = 15.0;  // 度/秒閾值
+
+// 環境舒適度閾值
+const float TEMP_MAX = 28.0;   // 最高舒適溫度
+const float TEMP_MIN = 18.0;   // 最低舒適溫度
+const float HUMID_MAX = 70.0;  // 最高舒適濕度
+const float HUMID_MIN = 40.0;  // 最低舒適濕度
+
+// 運動狀態變量
+bool isMoving = false;
+String currentPosture = "未知";
+
+void setup() {
+  Serial.begin(115200);
+  Wire.begin();
   
-  2. **環境感測模塊開發**
-     - 使用AI生成DHT22與BMP280數據讀取代碼
-     - 設計溫濕度與氣壓趨勢分析算法
+  // 初始化感測器
+  dht.begin();
+  while(!mpu.begin(MPU6050_SCALE_2000DPS, MPU6050_RANGE_2G)) {
+    Serial.println("MPU6050初始化失敗！請檢查接線");
+    delay(500);
+  }
   
-  3. **運動檢測模塊開發**
-     - 使用AI開發MPU6050姿態解算代碼
-     - 實現運動模式識別與閾值檢測
+  // 校準MPU6050
+  mpu.calibrateGyro();
   
-  4. **系統整合與優化**
-     - AI協助設計多感測器數據融合算法
-     - 優化顯示界面與交互邏輯
+  Serial.println("智慧型運動姿態監測器初始化完成！");
+  Serial.println("溫度(°C), 濕度(%), 舒適度, 姿態角度, 運動狀態");
+}
 
-### 成果展示與進階技巧分享 (11:45-12:00)
-- 學員作品展示與經驗分享
-  - 實際應用中的挑戰與解決方案
-  - AI輔助開發的經驗反饋
-- 新型感測器開發常見問題與解決策略
-  - I2C通訊問題排查技巧
-  - 多感測器干擾與隔離方法
-- 學習資源與未來探索方向
-  - 推薦進階感測器學習資源
-  - 物聯網與環境監測系統發展趨勢
+void loop() {
+  // 讀取環境數據
+  float humidity = dht.readHumidity();
+  float temperature = dht.readTemperature();
+  
+  // 讀取運動數據
+  Vector normAccel = mpu.readNormalizeAccel();
+  Vector normGyro = mpu.readNormalizeGyro();
+  
+  // 計算姿態（簡化版）
+  float pitch = -(atan2(normAccel.XAxis, sqrt(normAccel.YAxis*normAccel.YAxis + 
+                 normAccel.ZAxis*normAccel.ZAxis))*180.0)/M_PI;
+  float roll = (atan2(normAccel.YAxis, normAccel.ZAxis)*180.0)/M_PI;
+  
+  // 檢測運動狀態
+  float accelMagnitude = sqrt(
+    normAccel.XAxis * normAccel.XAxis + 
+    normAccel.YAxis * normAccel.YAxis + 
+    normAccel.ZAxis * normAccel.ZAxis
+  );
+  
+  // 更新運動狀態
+  if (abs(accelMagnitude - 1.0) > MOVEMENT_THRESHOLD) {
+    isMoving = true;
+    if (pitch > 45) currentPosture = "前傾";
+    else if (pitch < -45) currentPosture = "後仰";
+    else if (roll > 45) currentPosture = "右傾";
+    else if (roll < -45) currentPosture = "左傾";
+    else currentPosture = "直立";
+  } else {
+    isMoving = false;
+    currentPosture = "靜止";
+  }
+  
+  // 判斷環境舒適度
+  String comfort = "適中";
+  if (temperature > TEMP_MAX || humidity > HUMID_MAX) {
+    comfort = "不適";
+  } else if (temperature < TEMP_MIN || humidity < HUMID_MIN) {
+    comfort = "偏冷";
+  }
+  
+  // 輸出數據
+  Serial.print("溫度: ");
+  Serial.print(temperature, 1);
+  Serial.print("°C, 濕度: ");
+  Serial.print(humidity, 1);
+  Serial.print("%, 舒適度: ");
+  Serial.print(comfort);
+  Serial.print(", 姿態: ");
+  Serial.print(currentPosture);
+  Serial.print(", 狀態: ");
+  Serial.println(isMoving ? "運動中" : "靜止");
+  
+  delay(100);  // 10Hz更新率
+}
+```
 
-## 新型感測器進階技術參考代碼
+### 2. 進階版本：可選功能
+```cpp
+// 在基礎版本基礎上可以選擇性添加：
+// 1. 運動時間統計
+// 2. 卡路里粗略估算
+// 3. 運動模式識別（走路/跑步）
+// 4. 數據記錄功能
+```
 
-### 1. DHT22溫濕度感測器示例
+### 3. DHT22溫濕度感測器示例
 ```cpp
 // AI生成的DHT22溫濕度感測器代碼
 #include <DHT.h>
-#include <LiquidCrystal_I2C.h>
 
 #define DHTPIN 2       // DHT22連接到數位引腳2
 #define DHTTYPE DHT22  // 使用DHT22感測器
-
-// 初始化LCD (地址, 列數, 行數)
-LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 // 初始化DHT感測器
 DHT dht(DHTPIN, DHTTYPE);
@@ -120,13 +195,6 @@ float celsiusToFahrenheit(float celsius) {
 
 void setup() {
   Serial.begin(9600);
-  
-  // 初始化LCD
-  lcd.init();
-  lcd.backlight();
-  lcd.clear();
-  lcd.setCursor(0, 0);
-  lcd.print("DHT22 Monitor");
   
   // 初始化DHT感測器
   dht.begin();
@@ -148,9 +216,6 @@ void loop() {
   // 檢查讀取是否成功
   if (isnan(humidity) || isnan(temperature)) {
     Serial.println("無法從DHT感測器讀取數據!");
-    lcd.clear();
-    lcd.setCursor(0, 0);
-    lcd.print("Sensor Error!");
     return;
   }
   
@@ -172,19 +237,6 @@ void loop() {
   avgTemp /= 10;
   avgHum /= 10;
   
-  // 在LCD顯示溫度和濕度
-  lcd.clear();
-  lcd.setCursor(0, 0);
-  lcd.print("Temp: ");
-  lcd.print(avgTemp, 1);
-  lcd.print((char)223); // 度數符號
-  lcd.print("C");
-  
-  lcd.setCursor(0, 1);
-  lcd.print("Humidity: ");
-  lcd.print(avgHum, 1);
-  lcd.print("%");
-  
   // 輸出至序列監視器
   Serial.print("溫度: ");
   Serial.print(temperature);
@@ -198,13 +250,12 @@ void loop() {
   
   // 檢查溫度警告條件
   if (temperature > 30) {
-    Serial.println("警告: 溫度過高!");
-    // 在這裡可以加入警報或其他反應
+    Serial.println("警告：溫度過高！");
   }
 }
 ```
 
-### 2. MPU6050姿態感測示例
+### 4. MPU6050姿態感測示例
 ```cpp
 // AI生成的MPU6050姿態感測與運動檢測代碼
 #include <Wire.h>
@@ -345,7 +396,7 @@ void loop() {
 }
 ```
 
-### 3. 土壤濕度與氣體感測示例
+### 5. 土壤濕度與氣體感測示例
 ```cpp
 // AI生成的土壤濕度與氣體感測器融合代碼
 #include <LiquidCrystal_I2C.h>
