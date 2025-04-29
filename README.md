@@ -13,6 +13,7 @@
 
 - [教材內容](AI輔助Arduino感測器工作坊教材.md)
 - [材料清單](材料清單.md)
+- [線上簡報](https://gamma.app/docs/2050AI-tbznsh1o86gqkpl)
 
 ## 系統需求
 
@@ -59,6 +60,32 @@
 - SCL 接 A5
 - SDA 接 A4
 
+## 學生專案列表
+
+| 學號 | 姓名 | GitHub 儲存庫 |
+|------|------|--------------|
+| B11235020 | 宇涵 | https://github.com/legggg1114/ai-tech |
+| B11235011 | 李昱賢 | https://github.com/zc15va/0429 |
+| B11235012 | 鄧丞惠 | https://github.com/sjdydch/20250429 |
+| B11235051 | 宜廷 | https://github.com/sha1123/ai-pilipala.git |
+| B11235048 | 蔡欣妤 | https://github.com/kt311024/ai-tech |
+| B11235007 | 沈彥辰 | https://github.com/e1bmd225/0429_AI-tech |
+| B11235035 | 游佳慧 | https://github.com/star0302/0429 |
+| B11235028 | 林紫渝 | https://github.com/Jiziyan1211/text |
+| B11235037 | 李宜庭 | https://github.com/8ace16/AI123 |
+| B11235004 | 陳鵬年 | https://github.com/CPNIAN/123456789 |
+| B11235049 | 林修禕 | https://github.com/mpmaaoo/429 |
+| B11235026 | 邱愉絜 | https://github.com/yqiu94116/b11235026 |
+| B11136025 | 黃湘如 | https://github.com/skyh8658/123.git |
+| B11235030 | 派洛飯捲 | https://github.com/Chaanhan77839/0429 |
+| B11235010 | 林承翰 | https://github.com/koketama/ai_workshop |
+| - | 張修齊 | https://github.com/cxz555444/dsiogfiowae4ugtouiw.git |
+| B11235055 | 林榆皓 | https://github.com/LimYuHaw/ArduinoWorkShop |
+| B11235043 | 洪詩涵 | https://github.com/ErrorExists666/pilicapililalabobolinabebeludo |
+| B11235050 | 竹 | https://github.com/Zhuzhu0223/Zhuzhu |
+| B11235042 | 張弘毅 | https://github.com/ze8495918/zzz-b11235042 |
+| M11235015 | ㄚ宸 | https://github.com/Cooga730/AI-tech1 |
+
 ## 授權
 
 本教材採用 MIT 授權條款。
@@ -73,4 +100,4 @@
 
 ## 最後更新
 
-2025年4月3日
+2025年4月29日
